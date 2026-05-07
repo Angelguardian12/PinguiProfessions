@@ -1,0 +1,16 @@
+# 1. CREAR LA RECETA AL INICIAR EL SERVIDOR
+on load:
+    set {_reliquia} to knowledge book named "&aKit Médico" with lore "&7Reanima a un jugador inconsciente" and "&7Se consume al usarlo"
+    
+    # Creamos la receta
+    register new shaped recipe for {_reliquia} using wheat seeds, paper, wheat seeds, paper, paper, paper, wheat seeds, paper, and wheat seeds with id "kit_medico"
+
+# 2. BLOQUEAR EL CRAFTEO POR RANGO/PERMISO
+on craft:
+    if name of event-item is "&aKit Médico":
+        
+        # Cambia este permiso por el que uses para tu rango
+        if player does not have permission "aztlan.crafteo.sanador":
+            
+            cancel event
+            send "&cTus manos no poseen el conocimiento antiguo para crear este elemento." to player

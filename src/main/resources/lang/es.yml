@@ -1,0 +1,23 @@
+prefix: "&8[&bPinguiProfessions&8] &7"
+no_permission: "&cNo tienes permisos para ejecutar este comando."
+reloaded: "&aConfiguración e idiomas recargados correctamente."
+only_players: "&cSolo los jugadores pueden ejecutar este comando."
+
+# Mensajes de Profesiones
+profession_selected: "&aHas elegido la profesión: &e%profession%&a."
+profession_abandoned: "&cHas abandonado tu profesión. Todo tu progreso se ha perdido."
+already_have_profession: "&cYa tienes una profesión activa. Debes abandonarla primero."
+
+# Herrero
+blacksmith_craft_fail: "&c¡Tu intento de crafteo ha fallado y el material se ha roto!"
+blacksmith_course_started: "&eHas comenzado tu práctica de herrería."
+
+# Doctor
+doctor_teleporting: "&aTeletransportándote al paciente %player%..."
+doctor_patient_healthy: "&cEl jugador %player% no está herido o enfermo."
+
+# Alquimista
+alchemist_brew_fail: "&c¡La poción de curación ha salido mal y se ha corrompido!"
+
+# General
+course_interact: "&7Holograma: &e%course_name%&7 - Clic para interactuar."

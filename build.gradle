@@ -1,0 +1,66 @@
+plugins {
+    id 'java'
+    id 'io.papermc.paperweight.userdev' version '1.7.1' apply false
+}
+
+group = 'bely'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+    maven {
+        name = "papermc-repo"
+        url = "https://repo.papermc.io/repository/maven-public/"
+    }
+    maven {
+        name = "sonatype"
+        url = "https://oss.sonatype.org/content/groups/public/"
+    }
+    // WorldGuard / WorldEdit
+    maven { url = "https://maven.enginehub.org/repo/" }
+    // QuickShop
+    maven { url = "https://repo.codemc.io/repository/maven-public/" }
+    // PlaceholderAPI (if needed for holograms)
+    maven { url = "https://repo.extendedclip.com/content/repositories/placeholderapi/" }
+    // Jitpack para SimpleClans
+    maven { url = "https://jitpack.io" }
+}
+
+dependencies {
+    compileOnly("io.papermc.paper:paper-api:1.21.1-R0.1-SNAPSHOT")
+    
+    // WorldGuard
+    compileOnly("com.sk89q.worldguard:worldguard-bukkit:7.0.10-SNAPSHOT")
+    
+    // PlaceholderAPI
+    compileOnly("me.clip:placeholderapi:2.11.6")
+    
+    // SimpleClans
+    compileOnly("com.github.RoinujNosde:SimpleClans:2.15.2")
+}
+
+def targetJavaVersion = 21
+java {
+    def javaVersion = JavaVersion.toVersion(targetJavaVersion)
+    sourceCompatibility = javaVersion
+    targetCompatibility = javaVersion
+    if (JavaVersion.current() < javaVersion) {
+        toolchain.languageVersion = JavaLanguageVersion.of(targetJavaVersion)
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
+        options.release.set(targetJavaVersion)
+    }
+}
+
+processResources {
+    def props = [version: version]
+    inputs.properties props
+    filteringCharset 'UTF-8'
+    filesMatching('plugin.yml') {
+        expand props
+    }
+}

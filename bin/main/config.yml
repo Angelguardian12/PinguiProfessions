@@ -1,0 +1,51 @@
+# PinguiProfessions - Archivo de Configuración
+
+# Sistema de Magia
+# Si está en true, se habilitará la interacción con tu plugin de magia
+# permitiendo a los alquimistas crear pociones de maná y dando a los caballeros resistencia mágica.
+use-mana: true
+
+# Configuración de base de datos
+database:
+  # Opciones: sqlite o mysql
+  type: "sqlite"
+  # Configuraciones para mysql
+  host: "localhost"
+  port: 3306
+  database: "pinguiprofessions"
+  username: "root"
+  password: ""
+
+# Regiones de cursos (WorldGuard)
+regions:
+  blacksmith: "curso_herrero"
+  doctor: "curso_doctor"
+  alchemist: "curso_alquimista"
+  barkeep: "curso_tabernero"
+  knight: "arena_caballero"
+  merchant: "curso_comerciante"
+  thief: "curso_ladron"
+  investigator: "curso_comisario"
+
+# Profesiones nuevas
+professions:
+  blacksmith:
+    fail_chance_apprentice: 40
+    fail_chance_journeyman: 20
+    fail_chance_master: 5
+  alchemist:
+    fail_chance: 60
+  knight:
+    magic_resistance: 15
+    weapon_mastery_bonus: 10
+  doctor:
+    teleport_cooldown: 120
+  thief:
+    # Porcentaje de probabilidad de soltar una Pista (0-100)
+    clue_drop_chance: 30
+    # Enfriamiento en segundos de las Bombas de Humo
+    smoke_bomb_cooldown: 15
+  investigator:
+    # Algoritmo para encriptar la identidad del ladrón en la pista
+    # Opciones válidas: CAESAR, MORSE
+    encryption_type: "MORSE"

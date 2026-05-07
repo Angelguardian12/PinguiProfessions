@@ -1,0 +1,27 @@
+name: PinguiProfessions
+version: '${version}'
+main: bely.pinguiprofessions.PinguiProfessions
+api-version: '1.21'
+authors: [Bely]
+description: Plugin de profesiones medievales para Bely
+
+depend:
+  - WorldGuard
+softdepend:
+  - Brewery
+  - NexusRevive
+  - QuickShop
+  - SimpleClans
+
+commands:
+  profesiones:
+    description: Comando principal de profesiones
+    aliases: [prof]
+  reportar:
+    description: Reportar a un jugador para que lo investigue un comisario
+    usage: /reportar <jugador> <motivo>
+  doctor:
+    description: Comandos medicos
+  extraerxp:
+    description: Extrae tu experiencia a una botella intercambiable.
+    usage: /extraerxp <cantidad>

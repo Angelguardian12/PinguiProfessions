@@ -1,0 +1,20 @@
+mision_herrero_1:
+  profession: BLACKSMITH
+  type: RENAME_ITEM
+  target_block:
+    x: 10
+    y: 64
+    z: -15
+  requirements:
+    item: IRON_SWORD
+    name: "&cEspada de Aprendiz"
+    lore:
+      - "&7Primera forja"
+  reward_xp: 50
+
+mision_doctor_1:
+  profession: DOCTOR
+  type: BREW_POTION
+  requirements:
+    item: GLISTERING_MELON_SLICE
+  reward_xp: 50

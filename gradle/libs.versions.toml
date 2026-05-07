@@ -1,0 +1,121 @@
+[versions]
+storage = "4.0.0"
+math = "4.0.0"
+tasker = "2.0.0"
+adventure = "4.26.1"
+adventure-fabric = "6.8.0"
+configurate = "4.2.0"
+cloud = "2.0.0"
+cloud-minecraft = "2.0.0-SNAPSHOT"
+cloud-minecraft-modded = "2.0.0-SNAPSHOT"
+bstats = "3.1.0"
+sponge-api = "17.0.0"
+sponge-common = "1.21.10-17.0.1-SNAPSHOT"
+paper-api = "1.21.11-R0.1-SNAPSHOT"
+minecraft = "1.21.11"
+fabric-loom = "1.15.3"
+fabric-api = "0.141.3+1.21.11"
+fabric-loader = "0.18.4"
+shadow = "9.3.0"
+flyway = "12.0.1"
+junit = "6.0.2"
+jspecify = "1.0.0"
+moddevgradle = "2.0.140"
+neoform = "1.21.11-20251209.172050"
+
+[libraries]
+storage = { module = "me.moros:storage", version.ref = "storage" }
+
+math-core = { module = "me.moros:math-core", version.ref = "math" }
+
+tasker-core = { module = "me.moros:tasker-core", version.ref = "tasker" }
+tasker-paper = { module = "me.moros:tasker-paper", version.ref = "tasker" }
+tasker-sponge = { module = "me.moros:tasker-sponge", version.ref = "tasker" }
+tasker-fabric = { module = "me.moros:tasker-fabric", version.ref = "tasker" }
+
+javapoet = { module = "com.squareup:javapoet", version = "1.13.0" }
+caffeine = { module = "com.github.ben-manes.caffeine:caffeine", version = "3.2.3" }
+jdbi = { module = "org.jdbi:jdbi3-core", version = "3.51.0" }
+hikari = { module = "com.zaxxer:HikariCP", version = "7.0.2" }
+flyway-core = { module = "org.flywaydb:flyway-core", version.ref = "flyway" }
+flyway-mysql = { module = "org.flywaydb:flyway-mysql", version.ref = "flyway" }
+flyway-pgsql = { module = "org.flywaydb:flyway-database-postgresql", version.ref = "flyway" }
+flyway-hsqldb = { module = "org.flywaydb:flyway-database-hsqldb", version.ref = "flyway" }
+eventbus = { module = "com.sasorio:event-api", version = "1.0.0" }
+
+junit-bom = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter" }
+junit-platform = { module = "org.junit.platform:junit-platform-launcher" }
+
+jspecify = { module = "org.jspecify:jspecify", version.ref = "jspecify" }
+
+adventure-api = { module = "net.kyori:adventure-api", version.ref = "adventure" }
+adventure-minimessage = { module = "net.kyori:adventure-text-minimessage", version.ref = "adventure" }
+adventure-fabric = { module = "net.kyori:adventure-platform-fabric", version.ref = "adventure-fabric" }
+
+luckperms-api = { module = "net.luckperms:api", version = "5.5" }
+mini-placeholders = { module = "io.github.miniplaceholders:miniplaceholders-api", version = "3.1.0" }
+
+configurate-core = { module = "org.spongepowered:configurate-core", version.ref = "configurate" }
+configurate-hocon = { module = "org.spongepowered:configurate-hocon", version.ref = "configurate" }
+configurate-gson = { module = "org.spongepowered:configurate-gson", version.ref = "configurate" }
+
+bstats-bukkit = { module = "org.bstats:bstats-bukkit", version.ref = "bstats" }
+bstats-sponge = { module = "org.bstats:bstats-sponge", version.ref = "bstats" }
+
+cloud-core = { module = "org.incendo:cloud-core", version.ref = "cloud" }
+cloud-minecraft = { module = "org.incendo:cloud-minecraft-extras", version.ref = "cloud-minecraft" }
+cloud-paper = { module = "org.incendo:cloud-paper", version.ref = "cloud-minecraft" }
+cloud-fabric = { module = "org.incendo:cloud-fabric", version.ref = "cloud-minecraft-modded" }
+cloud-sponge = { module = "org.incendo:cloud-sponge", version.ref = "cloud-minecraft" }
+
+# Databases
+mysql = { module = "com.mysql:mysql-connector-j", version = "9.6.0" }
+mariadb = { module = "org.mariadb.jdbc:mariadb-java-client", version = "3.5.7" }
+postgresql = { module = "org.postgresql:postgresql", version = "42.7.10" }
+h2 = { module = "com.h2database:h2", version = "2.4.240" }
+hsql = { module = "org.hsqldb:hsqldb", version = "2.7.4" }
+
+# Fabric
+fabric-minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }
+fabric-api = { module = "net.fabricmc.fabric-api:fabric-api", version.ref = "fabric-api" }
+fabric-loader = { module = "net.fabricmc:fabric-loader", version.ref = "fabric-loader" }
+fabric-placeholder = { module = "eu.pb4:placeholder-api", version = "2.8.2+1.21.10" }
+sgui = { module = "eu.pb4:sgui", version = "1.12.0+1.21.11" }
+fabric-permissions = { module = "me.lucko:fabric-permissions-api", version = "0.6.1" }
+
+# Bukkit
+inventory-framework = { module = "com.github.stefvanschie.inventoryframework:IF", version = "0.10.19-dev" }
+grief-prevention = { module = "com.github.TechFortress:GriefPrevention", version = "16.18.6" }
+towny = { module = "com.palmergames.bukkit.towny:towny", version = "0.102.0.0" }
+bolt = { module = "org.popcraft:bolt-bukkit", version = "1.2.86" }
+worldguard = { module = "com.sk89q.worldguard:worldguard-bukkit", version = "7.0.15" }
+papi = { module = "me.clip:placeholderapi", version = "2.12.2" }
+
+# Sponge
+sponge-api = { module = "org.spongepowered:spongeapi", version.ref = "sponge-api" }
+sponge-common = { module = "org.spongepowered:sponge", version.ref = "sponge-common" }
+sponge-mixin = { module = "org.spongepowered:mixin", version = "0.8.7" }
+
+# Plugins for build-logic
+shadow = { module = "com.gradleup.shadow:shadow-gradle-plugin", version.ref = "shadow" }
+maven-publish = { module = "com.vanniktech.maven.publish:com.vanniktech.maven.publish.gradle.plugin", version = "0.36.0" }
+moddevgradle = { module = "net.neoforged:moddev-gradle", version.ref = "moddevgradle" }
+minotaur = { module = "com.modrinth.minotaur:Minotaur", version = "2.8.10" }
+
+[bundles]
+cloud = ["cloud-core", "cloud-minecraft"]
+configurate = ["configurate-core", "configurate-hocon", "configurate-gson"]
+configurate-loaders = ["configurate-hocon", "configurate-gson"]
+drivers-local = ["h2", "hsql"]
+drivers-remote = ["mysql", "mariadb", "postgresql"]
+drivers-nonstandard = ["mariadb", "postgresql", "h2", "hsql"]
+flyway = ["flyway-core", "flyway-mysql", "flyway-pgsql", "flyway-hsqldb"]
+junit = ["junit-bom", "junit-jupiter"]
+
+[plugins]
+jmh = { id = "me.champeau.jmh", version = "0.7.3" }
+fabric-loom = { id = "fabric-loom", version.ref = "fabric-loom" }
+paperweight-userdev = { id = "io.papermc.paperweight.userdev", version = "2.0.0-beta.19" }
+hangar = { id = "io.papermc.hangar-publish-plugin", version = "0.1.4" }
+run-paper = { id = "xyz.jpenilla.run-paper", version = "3.0.2" }

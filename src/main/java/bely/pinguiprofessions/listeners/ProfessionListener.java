@@ -39,8 +39,8 @@ public class ProfessionListener implements Listener {
 
             if (profile == null) return;
 
-            // Si NO es herrero, bloquear el crafteo de estos ítems
-            if (profile.getProfession() != Profession.BLACKSMITH) {
+            // Si NO es herrero y no tiene bypass, bloquear el crafteo de estos ítems
+            if (profile.getProfession() != Profession.BLACKSMITH && !player.hasPermission("pinguiprofessions.admin.bypass")) {
                 event.setCancelled(true);
                 player.sendMessage(LanguageManager.format("&cSolo un Herrero puede forjar este equipamiento."));
                 return;

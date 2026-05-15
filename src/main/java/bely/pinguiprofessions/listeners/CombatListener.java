@@ -29,7 +29,7 @@ public class CombatListener implements Listener {
         Player player = (Player) event.getDamager();
         PlayerProfile profile = professionManager.getProfile(player.getUniqueId());
 
-        if (profile != null && profile.getProfession() == Profession.KNIGHT && profile.getRank() > 0) {
+        if ((profile != null && profile.getProfession() == Profession.KNIGHT && profile.getRank() > 0) || player.hasPermission("pinguiprofessions.admin.bypass")) {
             ItemStack weapon = player.getInventory().getItemInMainHand();
             String name = weapon.getType().name();
             
@@ -49,7 +49,7 @@ public class CombatListener implements Listener {
         Player player = (Player) event.getEntity();
         PlayerProfile profile = professionManager.getProfile(player.getUniqueId());
 
-        if (profile != null && profile.getProfession() == Profession.KNIGHT && profile.getRank() > 0) {
+        if ((profile != null && profile.getProfession() == Profession.KNIGHT && profile.getRank() > 0) || player.hasPermission("pinguiprofessions.admin.bypass")) {
             EntityDamageEvent.DamageCause cause = event.getCause();
             
             // Causas consideradas "mágicas" en vanilla (el plugin de magia del server normalmente usa estas causas o DAMAGE_ALL)
@@ -70,7 +70,7 @@ public class CombatListener implements Listener {
         Player player = event.getPlayer();
         PlayerProfile profile = professionManager.getProfile(player.getUniqueId());
 
-        if (profile != null && profile.getProfession() == Profession.KNIGHT && profile.getRank() > 0) {
+        if ((profile != null && profile.getProfession() == Profession.KNIGHT && profile.getRank() > 0) || player.hasPermission("pinguiprofessions.admin.bypass")) {
             ItemStack chestplate = player.getInventory().getChestplate();
             
             // Si lleva armadura pesada y el vector Y es positivo (normalmente implica empuje por daño)

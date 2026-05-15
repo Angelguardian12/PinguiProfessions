@@ -28,7 +28,7 @@ public class ShopListener implements Listener {
             PlayerProfile profile = professionManager.getProfile(player.getUniqueId());
 
             // Solo los comerciantes (rango 1+) pueden crear tiendas físicas
-            if (profile == null || profile.getProfession() != Profession.MERCHANT || profile.getRank() == 0) {
+            if ((profile == null || profile.getProfession() != Profession.MERCHANT || profile.getRank() == 0) && !player.hasPermission("pinguiprofessions.admin.bypass")) {
                 event.setCancelled(true);
                 player.sendMessage(LanguageManager.format("&cLas leyes del mercado dictan que solo los &eComerciantes &cgraduados pueden establecer tiendas."));
             }

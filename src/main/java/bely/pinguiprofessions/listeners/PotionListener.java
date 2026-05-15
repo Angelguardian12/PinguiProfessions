@@ -63,7 +63,7 @@ public class PotionListener implements Listener {
                 return;
             }
             
-            if (profile.getProfession() == Profession.DOCTOR) {
+            if (profile.getProfession() == Profession.DOCTOR || player.hasPermission("pinguiprofessions.admin.bypass")) {
                 // El doctor puede hacerlo libremente
                 return;
             } else if (profile.getProfession() == Profession.ALCHEMIST) {

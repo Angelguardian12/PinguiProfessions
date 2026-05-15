@@ -41,7 +41,7 @@ public class InvestigatorListener implements Listener {
         Player player = event.getPlayer();
         PlayerProfile profile = professionManager.getProfile(player.getUniqueId());
         
-        if (profile == null || profile.getProfession() != Profession.INVESTIGATOR) {
+        if ((profile == null || profile.getProfession() != Profession.INVESTIGATOR) && !player.hasPermission("pinguiprofessions.admin.bypass")) {
             for (Item item : player.getWorld().getEntitiesByClass(Item.class)) {
                 ItemStack itemStack = item.getItemStack();
                 if (itemStack.hasItemMeta() && itemStack.getItemMeta().getPersistentDataContainer().has(thiefKey, PersistentDataType.STRING)) {
@@ -63,7 +63,7 @@ public class InvestigatorListener implements Listener {
             PlayerProfile profile = professionManager.getProfile(player.getUniqueId());
             
             // Si por alguna razón la ve alguien más, cancelar
-            if (profile == null || profile.getProfession() != Profession.INVESTIGATOR) {
+            if ((profile == null || profile.getProfession() != Profession.INVESTIGATOR) && !player.hasPermission("pinguiprofessions.admin.bypass")) {
                 event.setCancelled(true);
                 return;
             }
@@ -101,7 +101,7 @@ public class InvestigatorListener implements Listener {
         if (mainHand.getType() == Material.COMPASS && offHand.hasItemMeta()) {
             if (offHand.getItemMeta().getPersistentDataContainer().has(thiefKey, PersistentDataType.STRING)) {
                 PlayerProfile profile = professionManager.getProfile(player.getUniqueId());
-                if (profile != null && profile.getProfession() == Profession.INVESTIGATOR && profile.getRank() > 0) {
+                if ((profile != null && profile.getProfession() == Profession.INVESTIGATOR && profile.getRank() > 0) || player.hasPermission("pinguiprofessions.admin.bypass")) {
                     
                     String thiefName = offHand.getItemMeta().getPersistentDataContainer().get(thiefKey, PersistentDataType.STRING);
                     Player thief = plugin.getServer().getPlayer(thiefName);

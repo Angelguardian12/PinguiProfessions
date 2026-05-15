@@ -49,7 +49,7 @@ public class ThiefListener implements Listener {
         Player player = event.getPlayer();
         PlayerProfile profile = professionManager.getProfile(player.getUniqueId());
 
-        if (profile != null && profile.getProfession() == Profession.THIEF && profile.getRank() > 0) {
+        if ((profile != null && profile.getProfession() == Profession.THIEF && profile.getRank() > 0) || player.hasPermission("pinguiprofessions.admin.bypass")) {
             if (event.isSneaking()) {
                 player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 200, 1, false, false, true));
             } else {
@@ -68,7 +68,7 @@ public class ThiefListener implements Listener {
         
         if (item.getType() == Material.FIREWORK_STAR && item.hasItemMeta() && item.getItemMeta().getDisplayName().contains("Bomba de Humo")) {
             PlayerProfile profile = professionManager.getProfile(player.getUniqueId());
-            if (profile != null && profile.getProfession() == Profession.THIEF && profile.getRank() > 0) {
+            if ((profile != null && profile.getProfession() == Profession.THIEF && profile.getRank() > 0) || player.hasPermission("pinguiprofessions.admin.bypass")) {
                 event.setCancelled(true);
                 
                 long current = System.currentTimeMillis();
@@ -122,7 +122,7 @@ public class ThiefListener implements Listener {
 
     private void checkAndDropClue(Player player) {
         PlayerProfile profile = professionManager.getProfile(player.getUniqueId());
-        if (profile != null && profile.getProfession() == Profession.THIEF && profile.getRank() > 0) {
+        if ((profile != null && profile.getProfession() == Profession.THIEF && profile.getRank() > 0) || player.hasPermission("pinguiprofessions.admin.bypass")) {
             int chance = plugin.getConfig().getInt("professions.thief.clue_drop_chance", 30);
             if (random.nextInt(100) < chance) {
                 dropClue(player);
@@ -151,7 +151,7 @@ public class ThiefListener implements Listener {
             public void run() {
                 for (Player p : plugin.getServer().getOnlinePlayers()) {
                     PlayerProfile prof = professionManager.getProfile(p.getUniqueId());
-                    if (prof == null || prof.getProfession() != Profession.INVESTIGATOR) {
+                    if ((prof == null || prof.getProfession() != Profession.INVESTIGATOR) && !p.hasPermission("pinguiprofessions.admin.bypass")) {
                         p.hideEntity(plugin, dropped);
                     }
                 }

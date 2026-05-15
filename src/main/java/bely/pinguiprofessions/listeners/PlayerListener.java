@@ -67,7 +67,7 @@ public class PlayerListener implements Listener {
             Player player = (Player) event.getWhoClicked();
             PlayerProfile profile = professionManager.getProfile(player.getUniqueId());
             
-            if (profile == null || profile.getProfession() != Profession.DOCTOR) {
+            if ((profile == null || profile.getProfession() != Profession.DOCTOR) && !player.hasPermission("pinguiprofessions.admin.bypass")) {
                 event.setCancelled(true);
                 player.sendMessage(LanguageManager.format("&cTus manos no poseen el conocimiento antiguo para crear este elemento."));
             }

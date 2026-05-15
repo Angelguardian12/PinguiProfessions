@@ -79,6 +79,17 @@ public class PinguiProfessions extends JavaPlugin {
         getCommand("reportar").setExecutor(new bely.pinguiprofessions.commands.ReportCommand(this));
         getCommand("extraerxp").setExecutor(new ExpCommand(this));
         
+        // Integración inicial con LuckPerms
+        if (!getConfig().getBoolean("luckperms_groups_created", false)) {
+            getLogger().info("Ejecutando creación inicial de grupos en LuckPerms...");
+            String[] groups = {"herrero", "doctor", "alquimista", "tabernero", "caballero", "comerciante", "ladron", "comisario"};
+            for (String group : groups) {
+                getServer().dispatchCommand(getServer().getConsoleSender(), "lp creategroup " + group);
+            }
+            getConfig().set("luckperms_groups_created", true);
+            saveConfig();
+        }
+        
         // Ejecutar tarea de holograma cada 10 ticks (medio segundo)
         new HologramTask(this, courseManager, professionManager).runTaskTimer(this, 20L, 10L);
     }

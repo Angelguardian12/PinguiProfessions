@@ -4,6 +4,9 @@
 # permitiendo a los alquimistas crear pociones de maná y dando a los caballeros resistencia mágica.
 use-mana: true
 
+# Indica si los grupos de LuckPerms ya fueron creados automáticamente por el plugin
+luckperms_groups_created: false
+
 # Integración con SimpleClans
 use-simpleclans: true
 

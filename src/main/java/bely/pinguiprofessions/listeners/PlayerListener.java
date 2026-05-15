@@ -141,6 +141,13 @@ public class PlayerListener implements Listener {
                             profile.setXp(0);
                             profile.setRank(1);
                             profile.getCompletedBlocks().clear();
+                            
+                            // Otorgar grupo de LuckPerms
+                            String groupName = getGroupName(courseProf);
+                            if (groupName != null) {
+                                org.bukkit.Bukkit.dispatchCommand(org.bukkit.Bukkit.getConsoleSender(), "lp user " + player.getName() + " parent add " + groupName);
+                            }
+                            
                             player.sendMessage(LanguageManager.format("&a¡Felicidades! Has completado tu entrenamiento y ahora eres oficialmente &e" + courseProf.getDisplayName() + "&a."));
                             player.playSound(player.getLocation(), org.bukkit.Sound.ENTITY_PLAYER_LEVELUP, 1f, 1f);
                         } else {
@@ -191,6 +198,20 @@ public class PlayerListener implements Listener {
                     if (amount == 0) break;
                 }
             }
+        }
+    }
+
+    private String getGroupName(Profession prof) {
+        switch (prof) {
+            case BLACKSMITH: return "herrero";
+            case DOCTOR: return "doctor";
+            case ALCHEMIST: return "alquimista";
+            case BARKEEP: return "tabernero";
+            case KNIGHT: return "caballero";
+            case MERCHANT: return "comerciante";
+            case THIEF: return "ladron";
+            case INVESTIGATOR: return "comisario";
+            default: return null;
         }
     }
 }

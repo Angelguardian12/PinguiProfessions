@@ -33,7 +33,29 @@ public class ProfessionManager {
     public void loadProfile(Player player) {
         Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
             PlayerProfile profile = databaseManager.loadPlayer(player.getUniqueId());
-            Bukkit.getScheduler().runTask(plugin, () -> cache.put(player.getUniqueId(), profile));
+            Bukkit.getScheduler().runTask(plugin, () -> {
+                cache.put(player.getUniqueId(), profile);
+                
+                // Sincronización con LuckPerms para rangos comprados/administrativos
+                if (profile.getProfession() == bely.pinguiprofessions.models.Profession.NONE) {
+                    bely.pinguiprofessions.models.Profession detectedProf = null;
+                    if (player.hasPermission("group.herrero")) detectedProf = bely.pinguiprofessions.models.Profession.BLACKSMITH;
+                    else if (player.hasPermission("group.doctor")) detectedProf = bely.pinguiprofessions.models.Profession.DOCTOR;
+                    else if (player.hasPermission("group.alquimista")) detectedProf = bely.pinguiprofessions.models.Profession.ALCHEMIST;
+                    else if (player.hasPermission("group.tabernero")) detectedProf = bely.pinguiprofessions.models.Profession.BARKEEP;
+                    else if (player.hasPermission("group.caballero")) detectedProf = bely.pinguiprofessions.models.Profession.KNIGHT;
+                    else if (player.hasPermission("group.comerciante")) detectedProf = bely.pinguiprofessions.models.Profession.MERCHANT;
+                    else if (player.hasPermission("group.ladron")) detectedProf = bely.pinguiprofessions.models.Profession.THIEF;
+                    else if (player.hasPermission("group.comisario")) detectedProf = bely.pinguiprofessions.models.Profession.INVESTIGATOR;
+
+                    if (detectedProf != null) {
+                        profile.setProfession(detectedProf);
+                        profile.setRank(1);
+                        profile.setXp(1000); // 1000 XP for immunity against penalties
+                        plugin.getLogger().info("Sincronizado jugador VIP " + player.getName() + " con profesión " + detectedProf.name());
+                    }
+                }
+            });
         });
     }
 
